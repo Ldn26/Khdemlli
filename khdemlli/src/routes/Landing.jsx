@@ -1,14 +1,17 @@
 import React from 'react'
-import Header from './Header'
-import Hero from './Hero'
-import Footer from './Footer'
+import Header from '../components/Landing/Header'
+import Hero from '../components/Landing/Hero'
+import Services from "../components/Landing/Services";
+// import Footer from '../components/Landing/Footer'
+
 
 function Landing() {
   return (
     <div>
         <Header />
         <Hero />
-        <Footer />
+        <Services/>
+        {/* <Footer /> */}
       
     </div>
   );
