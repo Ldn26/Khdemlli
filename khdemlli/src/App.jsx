@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import Landing from './routes/Landing';
 import AuthContext from "./contexts/AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
-import Login from "./components/login/SigninForm"
+import WorkerForm from "./components/login/WorkerForm";
 import Home from "./Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 
 const queryClient = new QueryClient();
 const routes = createBrowserRouter([
@@ -24,7 +25,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: <Login />,
+        element: <WorkerForm/>,
       },
       {
         path: "",
