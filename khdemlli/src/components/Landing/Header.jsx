@@ -18,54 +18,39 @@ function Header() {
         </Link>
 
         <ul className="md:items-center     lg:flex  hidden">
-          <li className="mx-4 whitespace-nowrap hover:border-b-2 border-blueColor flex-none ">
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
             <Link
-              className="transition text-mainColor    font-medium  tracking-wide duration-300 hover:text-orangeColor  text-md "
-              to="/"
+              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              to="  "
             >
               Home
             </Link>
           </li>
-          <li className="mx-4  whitespace-nowrap font-medium hover:border-b-2 border-blueColor">
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
             <Link
-              className="transition text-mainColor tracking-wide duration-300 hover:text-orangeColor  text-md"
-              to="/about"
+              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              to="  "
             >
               About
             </Link>
           </li>
-          <li className="mx-4 whitespace-nowrap font-medium hover:border-b-2 border-blueColor">
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
             <Link
-              className="transition text-mainColor tracking-wide duration-300 hover:text-orangeColor text-md"
-              to="/services"
+              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              to="  "
             >
               Services
             </Link>
           </li>
-          <li className="mx-4  whitespace-nowrap font-medium hover:border-b-2 border-blueColor ">
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
             <Link
-              className="transition text-mainColor tracking-wide duration-300 hover:text-orangeColor whitespace-nowrap text-md"
-              to="/contact"
+              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              to="  "
             >
-              Contact Us
+            Contact Us
             </Link>
           </li>
-          <li className="mx-4 whitespace-nowrap hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="transition text-mainColor font-medium  tracking-wide duration-300 hover:text-orangeColor text-md"
-              to="/"
-            >
-              Home
-            </Link>
-          </li>
-          <li className="mx-4  whitespace-nowrap hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="transition text-mainColor font-medium  tracking-wide duration-300 hover:text-orangeColor text-md"
-              to="/"
-            >
-              Home
-            </Link>
-          </li>
+    
         </ul>
 
         <div className="hidden lg:flex lg:items-center ">
@@ -149,9 +134,7 @@ function Header() {
           />
         </div>
       </ul>
- 
     </div>
-  
   );
 }
 

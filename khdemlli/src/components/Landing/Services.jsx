@@ -1,66 +1,70 @@
 import React from 'react'
 import JobCard from '../Services/JobCard'
-import air from "../../assets/landing/air.png"
-import { ImFileEmpty } from "react-icons/im";
+import paint from "../../assets/landing/air.png"
+import mainte from "../../assets/services/maintenance.png"
 
+import electric from "../../assets/services/electric.png"
+import builder from "../../assets/services/builder.png";
+import house from "../../assets/services/house.png";
+import security from "../../assets/services/security.png";
+import { ImFileEmpty } from "react-icons/im";
 function Services() {
   return (
-    <div className="flex flex-col items-center bg-[#F4F4F4]">
+    <div className="flex flex-col items-center pb-20 bg-[#F4F4F4]">
       <div className="bg-white flex my-4 px-4 mt-6 items-center">
-        <ImFileEmpty  className='text-orangeColor '/>
+        <ImFileEmpty className="text-orangeColor " />
         <h2 className="text-blueColor whitespace-nowra text-lg my-4 text-mainfont ml-2 font-bold ">
           Our Services{" "}
         </h2>
       </div>
-      <h1 className='text-4xl font-mainfont font-bold text-blueColor  '>Our Services</h1>
-      <p className="text-grayColor my-2 mb-4 w-[900px] text-center text-sm">
-        Lorem ipsum dolor sit amet consectetur <br /> adipisicin  elit. Libero deleniti
-        autem laborum eius s earum
-        praesent ium atit
-        aspern
+      <h1 className="text-4xl font-mainfont font-bold text-blueColor  ">
+        Our Services
+      </h1>
+      <p className="text-grayColor my-2 mb-4 w-[300px] text-center text-sm md:w-[500px]">
+        We Provide Services in these fields
       </p>
       <div className=" flex flex-wrap justify-center  w-3/4 mx-auto   ">
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            " ffffff"
           }
-          jobName={"Air Conditions"}
-          img={air}
+          jobName={"PainTing "}
+          img={paint}
+        />
+        <JobCard
+          Descrption={
+            "fdfdbdbdfdfffff fffffbdbf"
+          }
+          jobName={"Electrical installlation "}
+          img={electric}
         />
         <JobCard
           Descrption={
             "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
           }
-          jobName={"Air Conditions"}
-          img={air}
+          jobName={"Service & maintenance"}
+          img={mainte}
         />
         <JobCard
           Descrption={
             "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
           }
-          jobName={"Air Conditions"}
-          img={air}
+          jobName={"General Builder"}
+          img={builder}
         />
         <JobCard
           Descrption={
             "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
           }
-          jobName={"Air Conditions"}
-          img={air}
+          jobName={"House Extentions"}
+          img={house}
         />
         <JobCard
           Descrption={
             "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
           }
-          jobName={"Air Conditions"}
-          img={air}
-        />
-        <JobCard
-          Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
-          }
-          jobName={"Air Conditions"}
-          img={air}
+          jobName={"Security System"}
+          img={security}
         />
       </div>
     </div>

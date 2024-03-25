@@ -7,7 +7,7 @@ function JobCard({img,jobName ,Descrption }) {
       <h1 className="text-orangeColor text-mainfont font-bold mb-2 whitespace-nowrap  ">
         {jobName} service{" "}
       </h1>
-      <p className="text-grayColor text-sm mb-2">{Descrption}</p>
+      <p className="text-gray-400 text-sm mb-2">{Descrption}</p>
       <button className="float-end absolute bottom-3 left-5">
         <Link to="/services" className="text-white  hover:underline">
           Read More
