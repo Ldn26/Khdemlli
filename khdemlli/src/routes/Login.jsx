@@ -1,9 +1,16 @@
-import React from 'react'
-
+import Head from "../components/SignUp/Head";
+import LoginForm from "../components/login/LoginForm";
 function Login() {
   return (
-    <div>Login</div>
-  )
+    <div>
+      <Head
+        content={"Sign Up"}
+        question={"No Account Yet"}
+        redirection={"/Signup"}
+      />
+      <LoginForm />
+    </div>
+  );
 }
 
-export default Login
+export default Login;

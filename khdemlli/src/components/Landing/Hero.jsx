@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Button";
+import { Link } from "react-router-dom";
 import { IoMdSettings } from "react-icons/io";
 import hero2 from "../../assets/landing/hero2.jpg";
 import hero1 from '../../assets/landing/hero.jpg'
@@ -54,10 +55,12 @@ function Hero() {
           <h1 className="text-2xl sm:text-3xl  md:text-4xl  mb-5 whitespace-nowrap bg-white text-blueColor w-fit  px-2 leading-32 font-extrabold tracking-wideer text-mainfont">
             In Services Industry
           </h1>
-          <Button
-            className="bg-orangeColor mt-4 hover:shadow-white hover:bg-blueColor hover:text-white w-20 whitespace-nowrap flex justify-center text-blueColor  rounded-lg "
-            content="Join Us "
-          />
+          <Link to ="/signup">
+            <Button
+              className="bg-orangeColor mt-4 hover:shadow-white hover:bg-blueColor hover:text-white w-20 whitespace-nowrap flex justify-center text-blueColor  rounded-lg "
+              content="Join Us "
+            />
+          </Link>
         </div>
       </div>
       <div className=" items-center my-20 flex   flex-wrap sm:flex-no-wrap justify-center ">
