@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { useContext } from "react";
+import { userContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const navigate = useNavigate();
+  const setUser = useContext(userContext);
+
   const {
     register,
     handleSubmit,
@@ -11,19 +17,44 @@ function LoginForm() {
   } = useForm();
 
   const [show, setShow] = useState(false);
-  const onsubmit = (data) => {
+
+  const onSubmit = async (data) => {
     console.log(data);
-    // setUser(data)
+    const obj = {
+      email: data.email,
+      password: data.password,
+    };
+    console.log(obj);
+    try {
+      await fetch("https://dummyjson.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(obj),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.message) {
+            alert("error");
+            return;
+          }
+          /// the true
+          setUser(data);
+          navigate("/workerDashboard");
+          console.log("success fitching data ");
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center mb-60 items-center">
       <div className="mt-10  flex-col justify-center  w-[500px] flex   md:ml-10 ">
         <h1 className="text-secendFont my-2  text-center  pl-5  lg:text-4xl text-blueColor  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
           Account Log in
         </h1>
         <form
-          onSubmit={handleSubmit(onsubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="  px-1  my-2 gap-4 items-center flex flex-col"
         >
           <div>

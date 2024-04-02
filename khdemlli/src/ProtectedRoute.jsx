@@ -5,8 +5,9 @@ import { Navigate } from 'react-router-dom'
 function ProtectedRoute({children}) {
   
    const {user}  = useContext(userContext)
-  if(user === null ){
-   return <Navigate to= '/logim'/>
+
+  if(user !== null ){
+   return <Navigate to= '/logimProtection'/>
   }
   return children
 }

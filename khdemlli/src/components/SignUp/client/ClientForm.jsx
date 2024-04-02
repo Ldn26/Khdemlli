@@ -3,32 +3,58 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { userContext } from "../../../contexts/AuthContext";
-import { useContext } from "react";
 import { HiSparkles } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import  {userContext}  from "../../../contexts/AuthContext";
+import { useContext } from "react";
+
 
 function ClientForm() {
-  const { setUser } = useContext(userContext);
-
+  const setUser = useContext(userContext)
+  console.log(setUser)
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm();
 
   const [show, setShow] = useState(false);
 
-
-
-
-  const onsubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    // setUser(data)
+    const obj = {
+      fullname: data.name,
+      email: data.email,
+      password: data.password,
+    };
+    console.log(obj);
+
+    try {
+      await fetch("https://dummyjson.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(obj),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.message) {
+            alert("error");
+            return;
+          }
+          /// the true
+
+          console.log("success fitching data ");
+          setUser(data);
+          navigate("/clientDash");
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center my-12 items-center">
       <div className="mt-  flex-col justify-center border w-[500px] flex   md:ml-10 ">
         <div className="flex items-center justify-center">
           <h1 className="text-secendFont my-2  text-center  pl-5  lg:text-4xl text-blueColor  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
@@ -37,7 +63,7 @@ function ClientForm() {
           <HiSparkles className="text-yellow-400 text-ce" />
         </div>
         <form
-          onSubmit={handleSubmit(onsubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="  px-1  my-2 gap-4 items-center flex flex-col"
         >
           <div>

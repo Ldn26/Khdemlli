@@ -5,7 +5,6 @@ import { Navigate } from 'react-router-dom';
 import {Outlet } from "react-router-dom";
 function Home() {
  const  {setUser} = useContext(userContext)
-
   return (
     <>
       <div>Home</div>

@@ -1,5 +1,6 @@
 import Head from "../components/SignUp/Head";
 import LoginForm from "../components/login/LoginForm";
+import Foot from "../components/SignUp/Foot";
 function Login() {
   return (
     <div>
@@ -9,6 +10,7 @@ function Login() {
         redirection={"/Signup"}
       />
       <LoginForm />
+      <Foot/>
     </div>
   );
 }

@@ -12,22 +12,20 @@ import { userContext } from "../../../contexts/AuthContext";
 import { useContext } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-
 import { HiSparkles } from "react-icons/hi";
-
-
+import { useNavigate } from "react-router-dom";
 
 
 function WorkerForm() {
-  const { setUser } = useContext(userContext);
-  
+  const  setUser  = useContext(userContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm();
-  
+
   const [show, setShow] = useState(false);
   const [selectedYear, setSeletedYear] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
@@ -47,9 +45,37 @@ function WorkerForm() {
     setValue("Exp", value);
   };
 
-  const onsubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    // setUser(data)
+    const obj = {
+      fullname: data.name,
+      email: data.email,
+      password: data.password,
+      job: data.Job,
+      city: data.city,
+      expericence: data.Exp,
+    };
+    console.log(obj);
+
+    try {
+      await fetch("https://dummyjson.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(obj),
+      }).then((res) => res.json())
+      .then((data)=>{
+        if(data?.message){    
+        alert('error')
+          return 
+        }
+        /// the true 
+       console.log("success fitching data ")
+       setUser(data);
+       navigate("/workerDashboard");
+      })
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const Cities = [
@@ -71,8 +97,9 @@ function WorkerForm() {
   ];
   const Services = ["Painting", "Electical", "General Builder"];
   const Years = ["1 Year", "2 Years", "3 Years "];
+
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center my-12 items-center">
       <div className=" flex-col justify-center border w-[500px] flex   md:ml-10 ">
         <div className="flex items-center justify-center">
           <h1 className="text-secendFont my-2  text-center  pl-5  lg:text-4xl text-blueColor  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
@@ -81,7 +108,7 @@ function WorkerForm() {
           <HiSparkles className="text-yellow-400 text-ce" />
         </div>
         <form
-          onSubmit={handleSubmit(onsubmit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="  px-1  my-2 gap-4 items-center flex flex-col"
         >
           <div>
@@ -244,4 +271,5 @@ function WorkerForm() {
   );
 }
 
+// Export the WorkerForm component
 export default WorkerForm;
