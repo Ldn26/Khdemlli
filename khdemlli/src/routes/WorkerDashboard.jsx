@@ -4,7 +4,7 @@ import React from 'react'
 // import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import SideBar from '../components/Dashboards/WorkerDashboard/SideBarWorker';
-import ProfileWorker from "../components/Dashboards/WorkerDashboard/ProfileWorker"
+import ProfileWorker from "../components/Dashboards/WorkerDashboard/ProfileWorker";
 function WorkerDashboard() {
     // const { setUser } = useContext(userContext);
   return (

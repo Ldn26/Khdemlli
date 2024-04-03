@@ -11,7 +11,8 @@ import img from '../../assets/aboutusicons/Mm.png';
 
 const Aboutus = () => {
   return (
-    <div>  
+   
+   <div>  
 <div className=' relative   bg-black justify-center' >
 <section>
    <img className=" mt-28 mx-auto  " src={hogo} alt="logo" />

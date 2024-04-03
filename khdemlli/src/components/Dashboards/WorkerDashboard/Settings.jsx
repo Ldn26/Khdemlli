@@ -2,8 +2,8 @@ import React from 'react'
 import { TiCamera } from "react-icons/ti";
 function Settings() {
   return (
-    <div className="w-full flex  justify-center  flex-col">
-      <h1 className="text-center font-semibold py-2 text-blueColor ">
+    <div className=" w-full flex  justify-center  flex-col">
+      <h1 className="text-center font-inter py-2 text-blueColor ">
         Setting
       </h1>
       <hr className="w-full h-[1px] justify-center items-center mb-4 bg-blueColor mx-auto "></hr>
