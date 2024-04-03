@@ -8,14 +8,26 @@ import vict from '../../assets/aboutusicons/Vectorr.png';
 import victo from '../../assets/aboutusicons/Vectooor.png';
 import hihi from '../../assets/aboutusicons/haha.png';
 import img from '../../assets/aboutusicons/Mm.png';
+import Header from '../Landing/Header';
+import Footer from '../Landing/Footer'
+
 
 const Aboutus = () => {
   return (
    
+  
+
+   
+
    <div>  
+    <Header />
+
+    <div>
+
+    </div>
 <div className=' relative   bg-black justify-center' >
 <section>
-   <img className=" mt-28 mx-auto  " src={hogo} alt="logo" />
+   <img className=" mt-2 mx-auto  " src={hogo} alt="logo" />
   </section>
   <div className='absolute inset-0 flex justify-center items-center'>
     <h1 className='text-3xl text-white font-bold  '>About us</h1>
@@ -115,8 +127,11 @@ const Aboutus = () => {
 
  </section>
   <div className='mx-auto my-32 text-center'>
-    <button>Our workers </button>
+    
 
+  </div>
+  <div>
+    <Footer />
   </div>
   
 
