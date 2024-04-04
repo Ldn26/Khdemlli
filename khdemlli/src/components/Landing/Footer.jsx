@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className="w-full">
-      <div className="bg-orangeColor flex items-center  justify-around p-10">
+      <div className="bg-orangeColor flex items-center   justify-around p-10">
         <div className="flex  flex-col ">
           <h1 className="text-blueColor tracking-wide font-bold text-lg">
             Join Us Now

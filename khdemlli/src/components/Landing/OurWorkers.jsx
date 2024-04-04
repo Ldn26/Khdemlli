@@ -14,7 +14,7 @@ import { IoIosStar } from "react-icons/io";
 import { BiSolidError } from "react-icons/bi";
 import LoadingSpin from "react-loading-spin";
 import Button from "../Button"
-function OurWorkers() {
+function OurWorkers({content,back= "",items = ""}) {
   const fetchWorkers = async () => {
     const res = await fetch(
       "https://65fd9c189fc4425c65325ced.mockapi.io/khdemli/workers"
@@ -22,13 +22,20 @@ function OurWorkers() {
     return res.json();
   };
 
+
+
+
   const { data, isError, isLoading, isSuccess } = useQuery({
     queryKey: ["Workers"],
     queryFn: fetchWorkers,
   });
+const defaultC1 = "my-40 w-[500px] md:w-[700px]  lg:w-[1000px] xl:w-[1400px] mx-auto flex-col flex items-center py-4 bg-blueColor ";
+const defaultC2 = "bg-white border px-10 py-8 w-1/3 mx-1 basis-1/3  flex  items-center flex-col    "
+    const v1 = `${defaultC1} ${back}`.trim();
+    const v2 = `${defaultC2} ${items}`.trim();
 
   return (
-    <div className=" my-40 w-[500px] md:w-[700px]  lg:w-[1000px] xl:w-[1400px] mx-auto flex-col flex items-center py-4 bg-blueColor ">
+    <div className={v1}>
       <div className="flex  bg-[#F4F4F4]   ml-5 w-fit  items-center    p-5 py-1">
         <ImFileEmpty className="text-orangeColor " />
         <p className="text-[15px] ml-2   font-semibold text-blueColor  ">
@@ -36,7 +43,7 @@ function OurWorkers() {
         </p>
       </div>
       <h1 className="text-secendFont my-6   pl-5  lg:text-4xl text-white  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
-        Check Our Best Workers
+       {content}
       </h1>
       {isError && (
         <div className="flex items-center ">
@@ -62,13 +69,14 @@ function OurWorkers() {
       )}
       {isSuccess && (
         <div>
-          <Carousel>
-            <CarouselContent className="w-[400px] flex sm:w-[450px]   items-center justify-cente  md:w-[700px] lg:w-[900px] xl:w-[1200px]">
+          <Carousel >
+            <CarouselContent className = "w-[400px] flex sm:w-[450px] items-center  md:w-[700px] lg:w-[900px] xl:w-[1200px] ">
               {data?.map((el) => {
                 return (
                   <CarouselItem
                     key={el.id}
-                    className="  bg-white border px-10 py-8 w-1/3 mx-1 basis-1/3  flex  items-center flex-col "
+                    className={v2}
+                  
                   >
                     <Link to="/" className="">
                       <img

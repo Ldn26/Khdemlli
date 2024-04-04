@@ -29,7 +29,7 @@ function Header() {
           <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
             <Link
               className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
-              to="about"
+              to="/about"
             >
               About
             </Link>
@@ -50,16 +50,25 @@ function Header() {
               Contact Us
             </Link>
           </li>
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
+            <Link
+              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              to="/ourteam"
+            >
+              Our Team
+            </Link>
+          </li>
         </ul>
 
         <div className="hidden lg:flex lg:items-center ">
-          <Link to={"Signup"}>
+          <Link to={"/Signup"}>
             <Button
               content="Sign in"
               className="hover:bg-blueColor flex-none mr-4  bg-orangeColor hover:text-white"
             />
           </Link>
-          <Link to="login">
+          <Link to="/
+          login">
             {" "}
             <Button
               content="Log in"
@@ -114,7 +123,7 @@ function Header() {
         <li className=" hover:border-l-4 hover:border-l-orangeColor  mb-2  hover:border-r-orangeColor hover:border-r-4   w-3/4  justify-center flex gap-2 items-center ">
           <Link
             className="transition text-mainColor   text-center  whitespace-nowrap   px-7   font-medium  tracking-wide duration-300 hover:text-orangeColor  text-xs "
-            to="Signup"
+            to="/Signup"
           >
             Join Us
           </Link>
@@ -127,8 +136,16 @@ function Header() {
             Contact
           </Link>
         </li>{" "}
+        <li className=" hover:border-l-4 hover:border-l-orangeColor mb-2   hover:border-r-orangeColor hover:border-r-4   w-3/4  justify-center flex gap-2 items-center ">
+          <Link
+            className="transition text-mainColor   text-center  px-7   font-medium  tracking-wide duration-300 hover:text-orangeColor  text-xs "
+            to="/ourteam"
+          >
+            Our Team
+          </Link>
+        </li>{" "}
         <div className="sm:justify-between  flex-col flex items-center  sm:flex-row  justify-center  px-4 ">
-          <Link to="Signup">
+          <Link to="/Signup">
             <Button
               className="bg-blueColor text-white rounded-xl whitespace-nowrap sm:mr-2 mb-1 sm:m-0 w-2 flex justify-center   text-xs  "
               content="Sign Up"

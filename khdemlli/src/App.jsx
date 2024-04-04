@@ -7,15 +7,15 @@ import Contact from "./routes/Contact";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Login from "./routes/Login";
+import OurTeam from "./routes/OurTeam";
 import SignUp from "./routes/SignUp";
-import Services from "./routes/Services";
 import WorkerDashboard from "./routes/WorkerDashboard";
 import ClientDashboard from "./routes/ClientDashboard";
 import InboxWorker from "./components/Dashboards/WorkerDashboard/InboxWorker" 
 import NotificationWorker from "./components/Dashboards/WorkerDashboard/NotificationWorker"
 import EditProfileWorker from "./components/Dashboards/WorkerDashboard/EditProfileWorker";
 import Settings from "./components/Dashboards/WorkerDashboard/Settings";
-
+import ServicesPage from "./routes/ServicesPage";
 
 
 const queryClient = new QueryClient();
@@ -29,13 +29,19 @@ const routes = createBrowserRouter([
       </QueryClientProvider>
     ),
   },
+
   {
     path: "/about",
-    element: <About />,
+    element: (
+      <QueryClientProvider client={queryClient}>
+        <About />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    ),
   },
   {
     path: "/services",
-    element: <Services />,
+    element: <ServicesPage />,
   },
   {
     path: "/contact",
@@ -46,15 +52,19 @@ const routes = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "signup",
+    path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/ourteam",
+    element: <OurTeam/>,
   },
   {
     path: "",
     element: <AuthContext />,
     children: [
       {
-        path: "/workerDash",
+        path: "workerDash",
         element: (
           <ProtectedRoute>
             <QueryClientProvider client={queryClient}>
@@ -78,12 +88,12 @@ const routes = createBrowserRouter([
           },
           {
             path: "settingsw",
-            element:<Settings/>,
+            element: <Settings />,
           },
         ],
       },
       {
-        path: "/clientDash",
+        path: "clientDash",
         element: (
           <ProtectedRoute>
             <ClientDashboard />

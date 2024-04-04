@@ -1,6 +1,6 @@
 
 import React from 'react';
-import hogo from '../../assets/aboutusicons/Image.png';
+
 import Ha from '../../assets/aboutusicons/H.png';
 import iconn from '../../assets/aboutusicons/Iccon.png';
 import jojo from '../../assets/aboutusicons/Icon.png';
@@ -9,29 +9,28 @@ import victo from '../../assets/aboutusicons/Vectooor.png';
 import hihi from '../../assets/aboutusicons/haha.png';
 import img from '../../assets/aboutusicons/Mm.png';
 
+import Footer from '../Landing/Footer';
+import Banner from '../Banner';
+
 const Aboutus = () => {
   return (
-    <div>  
-<div className=' relative   bg-black justify-center' >
-<section>
-   <img className=" mt-28 mx-auto  " src={hogo} alt="logo" />
-  </section>
-  <div className='absolute inset-0 flex justify-center items-center'>
-    <h1 className='text-3xl text-white font-bold  '>About us</h1>
-  </div>
-  </div>
-
-
+    <div>    
+<Banner content={"About Us "}/>
   <section id='content'>
-  <div className='flex mx-auto px-48  flex-col-reverse md:flex-row my-48 '>
-  <div className='md:w-1/2 flex flex-col space-y-6  bg-[#FFFFFF] pl-5 text-center md:text-left'>
+  <div className='flex justify-center   flex-col-reverse md:flex-row my-48 '>
 
-      <div className=' flex gap-2 bg-slate-100 md:mr-72 md:ml-10 rounded-md md:p-2 md:m '>
+
+
+
+
+  <div className='md:w-1/2 flex flex-col space-y-6  bg-[#FFFFFF]  text-center md:text-left'>
+
+      <div className=' flex gap-2 bg-slate-100 ml-10 w-fit p-2 rounded-md  '>
         <img src={jojo} className='md:ml-3 ' />
-        <h1 className= ' font-bold text-[#1C2752]'> welcome to khedmlli</h1>
+        <h1 className= ' font-bold text-[#1C2752] whitespace-nowrap'> welcome to khedmlli</h1>
       </div>
       <h1 className= ' text-3xl md:text-4xl  font-extrabold text-[#1C2752] md:pl-10'>We're Commited <br/>to Quality</h1>
-      <p className='text-[#7E7E7E] md:pl-10  '>We are a home services provider dedicated to simplifying daily household management. Our platform offers diverse services and ample opportunities for workers, ensuring convenience and efficiency for both users and service providers.</p>
+      <p className='text-[#7E7E7E] md:pl-10 w-[400px] '>We are a home services provider dedicated to simplifying daily household management. Our platform offers diverse services and ample opportunities for workers, ensuring convenience and efficiency for both users and service providers.</p>
       
       <div className='  flex flx-col  md:gap-6 md:px-10 md:py-10 space-x-9 '>
       
@@ -71,17 +70,57 @@ const Aboutus = () => {
   </h1>
  </div>
     </div>
-    <div className=' flex md:w-1/2'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div className=' md:w-1/2'>
       <img src={Ha} alt="" />
     </div> 
 
   </div>
   </section>
+
+
+
+
+
+
+
+
+
+
+
 <section id='com'>
   <div className='mx-auto my-32 text-center'>
-<div className=' mt-10 flex flex-col   md:flex-row md:space-x-5 md:space-y-0 '>
 
-<div className=' md:w-1/4 items-center flex flex-col p-6 space-y-2 rounded-lg border-slate-300 bg-[#F4F4F4]' >
+
+
+
+
+
+
+
+
+
+
+
+
+<div className=' mt-10 flex flex-col mx-auto container   md:flex-row md:space-x-5 md:space-y-0 '>
+
+<div className=' md:w-1/4 items-cente r flex flex-col p-6 space-y-2 rounded-lg border-slate-300 bg-[#F4F4F4]' >
       <img src={vict} className='w-16 rounded-full ' />
       <h1 className='text-[#1C2752] font-bold text-3xl '>500+</h1>
       <p className='text-[#1C2752]'>Expert Constractors</p>
@@ -110,14 +149,7 @@ const Aboutus = () => {
 </div>
 </div>
 </section>
- <section id='author'>
 
- </section>
-  <div className='mx-auto my-32 text-center'>
-    <button>Our workers </button>
-
-  </div>
-  
 
   </div>
   

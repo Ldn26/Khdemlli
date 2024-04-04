@@ -21,7 +21,7 @@ function Landing() {
         <CustomersSays />
         <AnyQuestions />
       </div>
-      <OurWorkers />
+      <OurWorkers content={" Check Our Best Workers"} />
       <Sponsors />
       <Footer />
     </div>
