@@ -67,9 +67,8 @@ function Header() {
               className="hover:bg-blueColor flex-none mr-4  bg-orangeColor hover:text-white"
             />
           </Link>
-          <Link to="/
-          login">
-            {" "}
+          <Link to="/login">
+           {" "}
             <Button
               content="Log in"
               className="bg-blueColor text-white  hover:bg-orangeColor  ml-4  flex-none "

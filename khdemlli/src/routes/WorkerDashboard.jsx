@@ -8,8 +8,8 @@ import ProfileWorker from "../components/Dashboards/WorkerDashboard/ProfileWorke
 function WorkerDashboard() {
     // const { setUser } = useContext(userContext);
   return (
-    <div className='container mx-auto flex  w-full border  '>
-       <SideBar />
+    <div className='container mx-auto flex  w-full '>
+       <SideBar  />
         <Outlet />
         <ProfileWorker />
    

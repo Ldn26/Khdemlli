@@ -1,4 +1,5 @@
 import React from 'react'
+
 import logo from '../../../assets/sidsicon/LOGO.png';
 import {Link} from "react-router-dom"
 import { BsFillHouseDashFill } from "react-icons/bs";
@@ -12,13 +13,15 @@ function SideBarWorker() {
 
   
   return (
-    <div className="flex flex-col items-center justify-center   w-1/5">
-      <img src={logo} className="w-40 h-210 p-4"  alt="" />
+    <div className="flex flex-col border items-centent  sticky top-0    h-screen   w-1/5">
+      <img src={logo} className="w-60  p-4" alt="" />
       <div className="flex float-end flex-col justify-center  items-center">
-        <h1 className="text-sm font-semibold mt-5 text-gray-600 mr-6 ">OVERVIEW</h1>
+        <h1 className="text-sm font-semibold mt-5 text-gray-600 mr-6 ">
+          OVERVIEW
+        </h1>
         <ul>
           <li>
-            <Link to="workerDash">
+            <Link to="">
               <div className="flex  items-center my-4">
                 <BsFillHouseDashFill className="text-xl hover:text-orangeColor text-blueColor " />
                 <p className="ml-2 font-semibold  hover:text-orangeColor text-blueColor">
@@ -38,7 +41,7 @@ function SideBarWorker() {
             </Link>
           </li>
           <li>
-            <Link to="/aboutus">
+            <Link to="aboutusWorker">
               <div className="flex items-center my-4">
                 <MdWork className="text-xl text-blueColor hover:text-orangeColor " />
                 <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
@@ -48,7 +51,7 @@ function SideBarWorker() {
             </Link>
           </li>
           <li>
-            <Link to="/services">
+            <Link to="servicesw">
               <div className="flex items-center my-4">
                 <FaCodeCompare className="text-xl text-blueColor hover:text-orangeColor " />
 
@@ -59,7 +62,7 @@ function SideBarWorker() {
             </Link>
           </li>
           <li>
-            <Link to="/contact">
+            <Link to="contactusw">
               <div className="flex items-center my-4">
                 <BiSolidContact className="text-xl text-blueColor hover:text-orangeColor " />
                 <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
@@ -70,11 +73,13 @@ function SideBarWorker() {
           </li>
         </ul>
         <ul className="flex flex-col  mt-20 ">
-          <h1 className=" font-semibold mt-5 mb-2 text-sm text-gray-600">SETTINGS</h1>
+          <h1 className=" font-semibold mt-5 mb-2 text-sm text-gray-600">
+            SETTINGS
+          </h1>
 
           <li className="flex items-center  my-2">
             <IoMdSettings className="text-xl text-blueColor hover:text-orangeColor " />
-            <Link className="flex items-center">
+            <Link to={"settingsw"} className="flex items-center">
               <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
                 Settings{" "}
               </p>
@@ -82,8 +87,8 @@ function SideBarWorker() {
           </li>
           <li className="flex items-center my-2">
             <IoIosLogOut className="text-xl text-blueColor hover:text-orangeColor " />
-         
-            <Link className="flex items-center" to ="/">
+
+            <Link className="flex items-center" to="/">
               <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
                 Logout{" "}
               </p>

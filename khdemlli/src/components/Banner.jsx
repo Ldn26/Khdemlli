@@ -1,9 +1,11 @@
 import React from 'react'
 
 import hogo from "../assets/aboutusicons/Image.png";
-function Banner({content}) {
+function Banner({content, className = ""}) {
+  const defaultClasses = " relative  justify-center";
+ const classNames = `${defaultClasses} ${className}`.trim()
   return (
-    <div className=" relative  justify-center">
+    <div className={classNames}>
       <section>
         <img className=" mt-5 mx-auto  " src={hogo} alt="logo" />
       </section>

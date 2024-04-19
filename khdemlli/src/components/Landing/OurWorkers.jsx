@@ -29,7 +29,7 @@ function OurWorkers({content,back= "",items = ""}) {
     queryKey: ["Workers"],
     queryFn: fetchWorkers,
   });
-const defaultC1 = "my-40 w-[500px] md:w-[700px]  lg:w-[1000px] xl:w-[1400px] mx-auto flex-col flex items-center py-4 bg-blueColor ";
+const defaultC1 = "my-20 w-[500px] md:w-[700px]  lg:w-[1000px] xl:w-[1400px] mx-auto flex-col flex items-center py-4 bg-blueColor ";
 const defaultC2 = "bg-white border px-10 py-8 w-1/3 mx-1 basis-1/3  flex  items-center flex-col    "
     const v1 = `${defaultC1} ${back}`.trim();
     const v2 = `${defaultC2} ${items}`.trim();
@@ -42,7 +42,7 @@ const defaultC2 = "bg-white border px-10 py-8 w-1/3 mx-1 basis-1/3  flex  items-
           Our Workerrs
         </p>
       </div>
-      <h1 className="text-secendFont my-6   pl-5  lg:text-4xl text-white  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
+      <h1 className="text-secendFont    pl-5  lg:text-4xl text-white  whitespace-nowrap font-bold tracking-wide text-xl  p-2 ">
        {content}
       </h1>
       {isError && (

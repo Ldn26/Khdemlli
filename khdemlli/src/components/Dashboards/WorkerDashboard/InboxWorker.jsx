@@ -7,7 +7,6 @@ import { MdDelete } from "react-icons/md";
 import { BiSolidError } from "react-icons/bi";
 import { RiMailDownloadFill } from "react-icons/ri";
 import LoadingSpin from "react-loading-spin";
-;
 
 
 
@@ -24,15 +23,15 @@ function InboxWorker() {
     );
     return res.json();
   };
+ 
 
-
-//   const DeleteaNotification = async(id)=>{
+//   const DeleteaNotification = asy.nc(id)=>{
 //     try {
 //    const res = await fetch(
 //    `https://65fd9c189fc4425c65325ced.mockapi.io/khdemli/feed_back/${id}`,
 //   {
 //      method : "DELETE" 
-//   },
+//   },z
 //  );
 //     }catch (error){
 //        console.error("Error deleting feedback:", error);
@@ -64,7 +63,7 @@ function InboxWorker() {
         },
       },
     };
-  const columns = [
+   const columns = [
     {
       name: "name",
       selector: (row) => row.name,
@@ -103,7 +102,7 @@ function InboxWorker() {
     //   width: "56px",
     // },
   ];
-  const dataTable = data?.map((item)=>{
+  const  dataTable = data?.map((item)=>{
     return {
       name : item.name,
       Content : item.Comment,
@@ -116,12 +115,22 @@ function InboxWorker() {
       return row.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
 
-   setSearch(newData);
+    setSearch(newData);
+
   };
+    const [selectedRows ,setSelectedRows]= useState([])
+    const DeleteSelectedRow = () =>  {  
+      const updatedData = dataTable.filter((row) => {
+      // compair accourding to the instances      
+     return !selectedRows.some((selectedRow) => JSON.stringify(selectedRow) === JSON.stringify(row));
+      })   
+      setSearch(updatedData)
+      setSelectedRows([])
+    }
   return (
     <>
       {isSuccess && (
-        <div className="border w-full">
+        <div className="border w-3/5">
           <div className="flex justify-between items-center px-2 pt-2">
             <div className="mb-3 relative  ">
               <input
@@ -133,7 +142,9 @@ function InboxWorker() {
               <IoSearchSharp className="absolute top-[9px] left-[16px] text-grayColor " />
             </div>
             <div className="flex items-center justify-around">
-              <MdDelete className="mx-2 text-2xl" />
+              <button onClick={DeleteSelectedRow} >
+                <MdDelete className="mx-2 text-2xl text-red-500 hover:scale-110 hover:transition-all" />
+              </button>
               <RiMailDownloadFill className="text-2xl mx-2 " />
             </div>
           </div>
@@ -142,13 +153,16 @@ function InboxWorker() {
             customStyles={customStyles}
             highlightOnHover
             columns={columns}
+            selectedrows={selectedRows}
+            onSelectedRowsChange={(newSelectedRows) => {     
+               setSelectedRows(newSelectedRows.selectedRows);
+            }}
             data={search || dataTable}
             pagination
             responsive
             selectableRows
-           // striped // 1 by one colored
             noTableHead // no header
-           progressPending={isLoading}
+            progressPending={isLoading}
           ></DataTable>
         </div>
       )}

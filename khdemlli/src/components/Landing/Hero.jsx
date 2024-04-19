@@ -37,32 +37,37 @@ function Hero() {
 
   return (
     <div>
-      <div
-        className=" bg-cover  
-         flex items-center  justify-center transition-opacity duration-500 "
-        style={{
-          backgroundImage: `url(${loadedImage || randomImage})`,
-          minHeight: "calc(100vh - 88px)",
-          opacity: loadedImage ? 1 : 0,
-        }}
-      >
-        <div className=" flex lg:mt-20  lg:mr-[500px] flex-col">
-          <IoMdSettings className="    text-orangeColor text-5xl mb-6 bg-gray-600 w-10 h-10 p-2 opacity-95" />
-          <h1 className="text-2xl sm:text-3xl mb-7   md:text-4xl bg-white  whitespace-nowrap  text-blueColor px-2 leading-32 font-extrabold tracking-wider text-mainfont">
-            A Recognized <span className="text-orangeColor">Leader </span>
-            <br />
-          </h1>
-          <h1 className="text-2xl sm:text-3xl  md:text-4xl  mb-5 whitespace-nowrap bg-white text-blueColor w-fit  px-2 leading-32 font-extrabold tracking-wideer text-mainfont">
-            In Services Industry
-          </h1>
-          <Link to ="/signup">
-            <Button
-              className="bg-orangeColor mt-4 hover:shadow-white hover:bg-blueColor hover:text-white w-20 whitespace-nowrap flex justify-center text-blueColor  rounded-lg "
-              content="Join Us "
-            />
-          </Link>
+      <div className=" relative -mt-5  justify-center">
+        <section>
+          <img
+            className=" mt-5 mx-auto  bg-cover  brightness-[.4]  saturate-150 w-full transition-opacity duration-500"
+            src={randomImage}
+            alt="logo"
+            style={{
+              height: "calc(100vh - 88px)",
+              opacity: loadedImage ? 1 : 0,
+            }}
+          />
+        </section>
+        <div className="absolute inset-0 flex justify-center items-center">
+          <div className=" flex lg:mt-20  lg:mr-[500px] flex-col">
+            <IoMdSettings className="    text-orangeColor text-5xl mb-6 bg-gray-600 w-10 h-10 p-2 opacity-95" />
+            <h1 className="text-2xl sm:text-3xl mb-7   md:text-4xl whitespace-nowrap  text-white font-mainfont px-2 leading-32 font-extrabold tracking-wider text-mainfont">
+              A Recognized Leader
+            </h1>
+            <h1 className="text-2xl sm:text-3xl  md:text-4xl  mb-5 whitespace-nowrap text-white w-fit  px-2 leading-32 font-extrabold tracking-wideer text-mainfont">
+              In Services Industry
+            </h1>
+            <Link to="/signup">
+              <Button
+                className="bg-orangeColor mt-4 hover:shadow-white hover:bg-blueColor hover:text-white w-20 whitespace-nowrap flex justify-center text-blueColor  rounded-lg "
+                content="Join Us "
+              />
+            </Link>
+          </div>
         </div>
       </div>
+
       <div className=" items-center my-20 flex   flex-wrap sm:flex-no-wrap justify-center ">
         <div className="  md:mr-10 ">
           <img

@@ -13,10 +13,12 @@ import WorkerDashboard from "./routes/WorkerDashboard";
 import ClientDashboard from "./routes/ClientDashboard";
 import InboxWorker from "./components/Dashboards/WorkerDashboard/InboxWorker" 
 import NotificationWorker from "./components/Dashboards/WorkerDashboard/NotificationWorker"
-import EditProfileWorker from "./components/Dashboards/WorkerDashboard/EditProfileWorker";
 import Settings from "./components/Dashboards/WorkerDashboard/Settings";
 import ServicesPage from "./routes/ServicesPage";
-
+import AboutUsWorker from "./components/Dashboards/WorkerDashboard/AboutUsWorker";
+import ContactUsWorker from "./components/Dashboards/WorkerDashboard/ContactUsWorker";
+import OurServices from "./components/Dashboards/WorkerDashboard/OurServices";
+import DashWorker from "./components/Dashboards/DashWorker";
 
 const queryClient = new QueryClient();
 const routes = createBrowserRouter([
@@ -57,7 +59,7 @@ const routes = createBrowserRouter([
   },
   {
     path: "/ourteam",
-    element: <OurTeam/>,
+    element: <OurTeam />,
   },
   {
     path: "",
@@ -74,17 +76,30 @@ const routes = createBrowserRouter([
           </ProtectedRoute>
         ),
         children: [
+          { path: "settingsw", element: <Settings /> },
+          {
+            path: "servicesw",
+            element: <OurServices />,
+          },
+          {
+            index: true,
+            element: <DashWorker />,
+          },
           {
             path: "inboxw",
             element: <InboxWorker />,
           },
           {
-            path: "notificationw",
-            element: <NotificationWorker />,
+            path: "contactusw",
+            element: <ContactUsWorker />,
           },
           {
-            path: "profilew",
-            element: <EditProfileWorker />,
+            path: "aboutusWorker",
+            element: <AboutUsWorker />,
+          },
+          {
+            path: "notificationw",
+            element: <NotificationWorker />,
           },
           {
             path: "settingsw",
