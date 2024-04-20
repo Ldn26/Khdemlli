@@ -19,6 +19,7 @@ import AboutUsWorker from "./components/Dashboards/WorkerDashboard/AboutUsWorker
 import ContactUsWorker from "./components/Dashboards/WorkerDashboard/ContactUsWorker";
 import OurServices from "./components/Dashboards/WorkerDashboard/OurServices";
 import DashWorker from "./components/Dashboards/DashWorker";
+import Workerprofile from "./routes/Workerprofile";
 
 const queryClient = new QueryClient();
 const routes = createBrowserRouter([
@@ -48,6 +49,18 @@ const routes = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/Workerprofile",
+
+    element: (
+      <QueryClientProvider client={queryClient}>
+   <Workerprofile/>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    ),
+
+
   },
   {
     path: "/login",
