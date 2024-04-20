@@ -25,7 +25,7 @@ function ProfileWorker({ image }) {
     const res = await fetch(
       "https://65fd9c189fc4425c65325ced.mockapi.io/khdemli/workers/ "
     );
-    console.log(data);
+  //  console.log(data);
     return res.json();
   };
 
