@@ -8,21 +8,10 @@ function Portfolio({images}) {
    const [isTargeted ,setIsTargeted] = useState(true)
 
   return (
-    <div className='mt-10'>
+    <div className="custom-image-gallery" >
       <ImageGallery
         items={images}
-        showFullscreenButton={false}
-        renderItem={(item) => {
-          return (
-            <div className="image-gallery-image">
-              <img
-                src={item.original}
-                alt=""
-                className="object-cover h-96 w-full" // Tailwind CSS classes for height and width
-            />
-            </div>
-          );
-        }}
+        //  showFullscreenButton={false}
         showBullets={true}
       />
     </div>
