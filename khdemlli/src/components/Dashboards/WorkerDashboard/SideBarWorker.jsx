@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import logo from '../../../assets/sidsicon/LOGO.png';
-import {Link} from "react-router-dom"
+import logo from "../../../assets/sidsicon/LOGO.png";
+import { Link } from "react-router-dom";
 import { BsFillHouseDashFill } from "react-icons/bs";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { FaCodeCompare } from "react-icons/fa6";
@@ -9,9 +9,21 @@ import { MdWork } from "react-icons/md";
 import { BiSolidContact } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
 import { IoIosLogOut } from "react-icons/io";
-function SideBarWorker() {
+import { useContext } from "react";
+import { userContext } from "../../../contexts/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
-  
+function SideBarWorker() {
+  const { user, setUser } = useContext(userContext);
+  console.log(user);
+
+  const handelLogOut = () => {
+    localStorage.removeItem("authToken");
+    setUser(null);
+  };
+  //const decodeToken = jwtDecode(String(user.jwt))
+  //console.log(decodeToken)
+  // console.log(user.jwt);
   return (
     <div className="flex flex-col border items-centent  sticky top-0    h-screen   w-1/5">
       <img src={logo} className="w-60  p-4" alt="" />
@@ -31,6 +43,16 @@ function SideBarWorker() {
             </Link>
           </li>
           <li>
+            <Link to="chatw">
+              <div className="flex items-center my-4">
+                <HiInboxArrowDown className="text-xl text-blueColor hover:text-orangeColor " />
+                <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
+                  Chat{" "}
+                </p>
+              </div>
+            </Link>
+          </li>
+          <li>
             <Link to="inboxw">
               <div className="flex items-center my-4">
                 <HiInboxArrowDown className="text-xl text-blueColor hover:text-orangeColor " />
@@ -40,27 +62,7 @@ function SideBarWorker() {
               </div>
             </Link>
           </li>
-          <li>
-            <Link to="aboutusWorker">
-              <div className="flex items-center my-4">
-                <MdWork className="text-xl text-blueColor hover:text-orangeColor " />
-                <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
-                  About Us{" "}
-                </p>
-              </div>
-            </Link>
-          </li>
-          <li>
-            <Link to="servicesw">
-              <div className="flex items-center my-4">
-                <FaCodeCompare className="text-xl text-blueColor hover:text-orangeColor " />
-
-                <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
-                  Services{" "}
-                </p>
-              </div>
-            </Link>
-          </li>
+    
           <li>
             <Link to="contactusw">
               <div className="flex items-center my-4">
@@ -88,7 +90,7 @@ function SideBarWorker() {
           <li className="flex items-center my-2">
             <IoIosLogOut className="text-xl text-blueColor hover:text-orangeColor " />
 
-            <Link className="flex items-center" to="/">
+            <Link onClick={handelLogOut} className="flex items-center" to="/">
               <p className="ml-2 font-semibold text-blueColor hover:text-orangeColor ">
                 Logout{" "}
               </p>
@@ -100,4 +102,4 @@ function SideBarWorker() {
   );
 }
 
-export default SideBarWorker
+export default SideBarWorker;

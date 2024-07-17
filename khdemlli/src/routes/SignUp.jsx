@@ -7,7 +7,7 @@ function SignUp() {
     <div>
       <Head content={"Login"} redirection={"/login"} question={"Already A Member"}/>
       <Tab/>
-   <Foot/>
+     <Foot/>
     </div>
   )
 }

@@ -1,26 +1,18 @@
 import React from 'react'
 import { useContext } from "react";
 import { userContext } from '../contexts/AuthContext';
-import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import SideBar from '../components/Dashboards/ClientDashboard/SideBar';
-import Profile from '../components/Dashboards/ClientDashboard/Profile';
+import ProfileClient from '../components/Dashboards/ClientDashboard/ProfileClient';
+import SideBarClient from '../components/Dashboards/ClientDashboard/SideBarClient';
 function ClientDashboard() {
   const  setUser  = useContext(userContext);
 
   return (
-    <>
-    <SideBar/>
-      <div>ClientDash</div>
-      <button
-        onClick={() => {
-          setUser(null);
-          <Navigate to={"/login"} />;
-        }}
-      ></button>
-      <Profile/>
-      <Outlet/>
-    </>
+    <div className="container  mx-auto flex  w-full ">
+      <SideBarClient />
+      <Outlet />
+      <ProfileClient />
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from "../../assets/id/logo.svg";
 import Button from '../Button'
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Squash as Hamburger } from 'hamburger-react'
 function Header() {
  const [isOpen ,setIsOpen] = useState(false)
@@ -16,47 +17,71 @@ function Header() {
             className="hover:scale-105 max-w-fit w-32"
           />
         </Link>
+        {/* 
 
+ */}
         <ul className="md:items-center     lg:flex  hidden">
           <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-xl transition duration-300  text-mainColor  tracking-wide text-orangeColor  border-b-[3px] border-black"
+                  : "relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              }
+              //  className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
               to="/"
+              end
             >
               Home
-            </Link>
+            </NavLink>
           </li>
-          <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+          <li className="mx-4 whitespace-nowrap  font-medium hover:border--2 border-blueColor flex-none ">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-xl transition duration-300  text-mainColor  tracking-wide text-orangeColor  border-b-[3px] border-black"
+                  : "relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              }
               to="/about"
             >
               About
-            </Link>
+            </NavLink>
           </li>
           <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-xl transition duration-300  text-mainColor  tracking-wide text-orangeColor  border-b-[3px] border-black"
+                  : "relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              }
               to="/services"
             >
               Services
-            </Link>
+            </NavLink>
           </li>
           <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-xl transition duration-300  text-mainColor  tracking-wide text-orangeColor  border-b-[3px] border-black"
+                  : "relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              }
               to="/contact"
             >
               Contact Us
-            </Link>
+            </NavLink>
           </li>
           <li className="mx-4 whitespace-nowrap  font-medium hover:border-b-2 border-blueColor flex-none ">
-            <Link
-              className="relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-xl transition duration-300  text-mainColor  tracking-wide text-orangeColor  border-b-[3px] border-black"
+                  : "relative text-xl transition duration-300 w-fit block text-mainColor after:block tracking-wide hover:text-orangeColor after:content-['']   after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+              }
               to="/ourteam"
             >
               Our Team
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
@@ -68,7 +93,7 @@ function Header() {
             />
           </Link>
           <Link to="/login">
-           {" "}
+            {" "}
             <Button
               content="Log in"
               className="bg-blueColor text-white  hover:bg-orangeColor  ml-4  flex-none "
@@ -96,20 +121,21 @@ function Header() {
         }  w-2/5 flex justify-center flex-col bg-white  text-grayColor gap-1 items-center px-3 py-7`}
       >
         <li className=" border-l-4 border-l-orangeColor mb-2 -mt-3  border-r-orangeColor border-r-4   w-3/4  justify-center flex gap-2 items-center ">
-          <Link
-            className="transition text-mainColor   text-center  px-7  whitespace-nowrap   font-medium  tracking-wide duration-300 hover:text-orangeColor  text-xs "
+          <NavLink
+            className="transition text-mainColor   text-center  px-7   font-medium  tracking-wide duration-300 hover:text-orangeColor  text-xs "
             to="/"
+            end
           >
             Home
-          </Link>
+          </NavLink>
         </li>{" "}
         <li className=" hover:border-l-4 hover:border-l-orangeColor  mb-2  hover:border-r-orangeColor hover:border-r-4   w-3/4  justify-center flex gap-2 items-center ">
-          <Link
+          <NavLink
             className="transition text-mainColor   text-center  px-7   font-medium  tracking-wide duration-300 hover:text-orangeColor  text-xs "
             to="/about"
           >
             About
-          </Link>
+          </NavLink>
         </li>{" "}
         <li className=" hover:border-l-4 hover:border-l-orangeColor mb-2   hover:border-r-orangeColor hover:border-r-4   w-3/4  justify-center flex gap-2 items-center ">
           <Link

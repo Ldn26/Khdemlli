@@ -2,7 +2,7 @@ import React from 'react'
 
 import hogo from "../assets/aboutusicons/Image.png";
 function Banner({content, className = ""}) {
-  const defaultClasses = " relative  justify-center";
+  const defaultClasses = " relative   justify-center";
  const classNames = `${defaultClasses} ${className}`.trim()
   return (
     <div className={classNames}>

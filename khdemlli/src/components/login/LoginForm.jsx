@@ -5,48 +5,125 @@ import { FaEyeSlash } from "react-icons/fa";
 import { useContext } from "react";
 import { userContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
+import Swal from "sweetalert2";
 
 function LoginForm() {
   const navigate = useNavigate();
-  const setUser = useContext(userContext);
+  const { user, setUser } = useContext(userContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const [show, setShow] = useState(false);
 
+  // const onSubmit = async (data) => {
+  // //  console.log(data);
+  //   const obj = {
+  //     email: data.email,
+  //     password: data.password,
+  //   };
+  //   console.log(obj);
+
+  //   try {
+  //     await fetch("http://127.0.0.1:8000/api/login/", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         //  Authorization: `Bearer ${token}`
+  //       },
+  //       body: JSON.stringify(obj),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data?.message) {
+  //           console.log(data.message)
+  //           alert("Opps An Eroor Bro error");
+  //           return;
+  //         }
+  //         if(response.status = ok){
+
+  //           /// the true
+  //           setUser(data);
+  //           console.log(data);
+  //           localStorage.setItem("authTokens", JSON.stringify(data)); //jwt encoded
+  //           navigate("/workerDash");
+  //           console.log("Log in ");
+  //         }
+
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const onSubmit = async (data) => {
-    console.log(data);
     const obj = {
       email: data.email,
       password: data.password,
     };
     console.log(obj);
+
     try {
-      await fetch("https://dummyjson.com/auth/login", {
+      const response = await fetch("http://127.0.0.1:8000/api/login/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+   //       Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(obj),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.message) {
-            alert("error");
-            return;
-          }
-          /// the true
-          setUser(data);
-          navigate("/workerDashboard");
-          console.log("success fitching data ");
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(errorData.message);
+        Swal.fire({
+          title: "Username or passowrd does not exists",
+          icon: "error",
+          toast: true,
+          timer: 4000,
+          position: "top-right",
+          timerProgressBar: false,
+          showConfirmButton: false,
+          showCancelButton: true,
         });
+        return;
+      }
+
+      const responseData = await response.json();
+      console.log(responseData);
+      setUser(responseData);
+      console.log(jwtDecode(responseData.jwt));
+
+      localStorage.setItem("authToken", JSON.stringify(responseData.jwt)); //jwt encoded
+      Swal.fire({
+        title: "Login Successful",
+        icon: "success",
+        toast: true,
+        timer: 4000,
+        position: "top-right",
+        timerProgressBar: false,
+        showConfirmButton: false,
+        showCancelButton: true,
+      });
+      if (jwtDecode(responseData.jwt).is_client) {
+        navigate("/clientDash/request");
+      } else {
+        navigate("/WorkerDash");
+      }
+
+      console.log("Logged in successfully");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
-
+  const handelClick =()=>{
+     navigate("/forgetPassword");
+  }
+  /////
   return (
     <div className="flex justify-center mb-60 items-center">
       <div className="mt-10  flex-col justify-center  w-[500px] flex   md:ml-10 ">
@@ -110,7 +187,19 @@ function LoginForm() {
               </p>
             )}
           </div>
-
+          <div className="flex items-center justify-between  flex-row">
+            <input
+              type="radio"
+              name="favoriteColor"
+              value="red"
+              onClick={handelClick}
+              //   checked={selectedColor === "red"}
+              //   onChange={handleChange}
+            />
+            <label className="text-blueColor text-sm ml-[300px]  font-semibold">
+              Forget Password ?
+            </label>
+          </div>
           <button
             type="submit"
             className="py-3 px-7  w-[450px] text-sm  font-medium  bg-blueColor text-white hover:shadow-xl  hover:shadow-indigo-500/40 transition-all duration-300 hover:scale-105"

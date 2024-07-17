@@ -7,11 +7,10 @@ import { HiSparkles } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import  {userContext}  from "../../../contexts/AuthContext";
 import { useContext } from "react";
-
+import Swal from "sweetalert2";   
 
 function ClientForm() {
-  const setUser = useContext(userContext)
-  console.log(setUser)
+  const {setUser} = useContext(userContext)
   const navigate = useNavigate();
   const {
     register,
@@ -22,36 +21,72 @@ function ClientForm() {
   const [show, setShow] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log(data);
-    const obj = {
-      fullname: data.name,
-      email: data.email,
-      password: data.password,
-    };
-    console.log(obj);
-
+   const obj = {
+     username: data.username,
+     email: data.email,
+     password: data.password,
+     is_artisan: false,
+     is_client: true,
+   };
     try {
-      await fetch("https://dummyjson.com/auth/login", {
+      const response = await fetch("http://127.0.0.1:8000/api/register/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`
+        },
         body: JSON.stringify(obj),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data?.message) {
-            alert("error");
-            return;
-          }
-          /// the true
-
-          console.log("success fitching data ");
-          setUser(data);
-          navigate("/clientDash");
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(errorData.message);
+        Swal.fire({
+          title: "Usern Already  exist",
+          icon: "error",
+          toast: true,
+          timer: 4000,
+          position: "top-right",
+          timerProgressBar: false,
+          showConfirmButton: false,
+          showCancelButton: true,
         });
+        return;
+      }
+
+      const responseData = await response.json();
+      setUser(responseData);
+      console.log(responseData.jwt);
+      localStorage.setItem("authToken", JSON.stringify(responseData.jwt)); //jwt encoded
+      Swal.fire({
+        title: "Sign-Up  Successful",
+        icon: "success",
+        toast: true,
+        timer: 4000,
+        position: "top-right",
+        timerProgressBar: false,
+        showConfirmButton: false,
+        showCancelButton: true,
+      });
+      navigate("/clientDash/request");
+      console.log("Sign in  in successfully");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   return (
     <div className="flex justify-center my-12 items-center">
@@ -69,8 +104,8 @@ function ClientForm() {
           <div>
             <input
               type="text"
-              placeholder="full Name"
-              {...register("name", {
+              placeholder="User name"
+              {...register("username", {
                 required: "Name is required",
               })}
               className="placeholder:text-gray-400  font-semibold hover:shadow-lg text-sm  hover:border-2  hover:border-blueColor 

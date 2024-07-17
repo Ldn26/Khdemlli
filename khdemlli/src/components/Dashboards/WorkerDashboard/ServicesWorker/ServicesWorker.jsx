@@ -10,12 +10,13 @@ import builder from "../../../../assets/services/builder.png";
 import house from "../../../../assets/services/house.png";
 import security from "../../../../assets/services/security.png";
 import { ImFileEmpty } from "react-icons/im";
+import ServiceCard from "./ServiceCard";
 function ServicesWorker() {
   return (
-    <div className="flex flex-col mt-10 items-center pb-20 ">
-      <div className="bg-white flex my-4 px-4 mt-6 items-center">
+    <div className="flex flex-col mt-0 items-center pb-10 ">
+      <div className="bg-white flex my-4 px-4    items-center">
         <ImFileEmpty className="text-orangeColor " />
-        <h2 className="text-blueColor whitespace-nowra text-lg my-4 text-mainfont ml-2 font-bold ">
+        <h2 className="text-blueColor whitespace-nowra text-lg text-mainfont ml-2 font-bold ">
           Our Services{" "}
         </h2>
       </div>
@@ -25,37 +26,42 @@ function ServicesWorker() {
       <p className="text-grayColor my-2 mb-4 w-[300px] text-center text-sm md:w-[500px]">
         We Provide Services in these fields
       </p>
-      <div className=" flex flex-wrap justify-center  mx-auto   ">
-        <JobCard Descrption={" ffffff"} jobName={"PainTing "} img={paint} />
-        <JobCard
+      <div className="  flex flex-wrap justify-center  mx-auto  ">
+
+        <ServiceCard
           Descrption={"fdfdbdbdfdfffff fffffbdbf"}
           jobName={"Electrical installlation "}
           img={electric}
         />
-        <JobCard
+        <ServiceCard
+          Descrption={"fdfdbdbdfdfffff fffffbdbf"}
+          jobName={"Electrical installlation "}
+          img={electric}
+        />
+          <ServiceCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "fdfdbdbdfdfffffffffffffff fffff"
           }
           jobName={"Service & maintenance"}
           img={mainte}
         />
-        <JobCard
+         <ServiceCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "fdfdbdbdfdfffffffffffffff ffffffffffffbdbf"
           }
           jobName={"General Builder"}
           img={builder}
         />
-        <JobCard
+    <ServiceCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "fdfdbdbdf dfffffffff ffffff fffffffff fff ffffffffffffffffbdbf"
           }
           jobName={"House Extentions"}
           img={house}
         />
-        <JobCard
+  <ServiceCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "fdfdbdbdfdfff  fffff ffbd d er gdf grdf"
           }
           jobName={"Security System"}
           img={security}

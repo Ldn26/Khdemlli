@@ -19,10 +19,13 @@ function Footer() {
             Join us now for searching for services or find a job
           </p>
         </div>
-        <Button
-          className=" text-blueColor hover:bg-blueColor whitespace-nowrap hover:text-white font-bold bg-white"
-          content="Sign in"
-        />
+        <Link to="/Signup">
+          {" "}
+          <Button
+            className=" text-blueColor hover:bg-blueColor whitespace-nowrap hover:text-white font-bold bg-white"
+            content="Sign in"
+          />
+        </Link>
       </div>
       <div className="bg-blueColor py-10 px-20 ">
         <div className="flex   flex-col md:flex-row    justify-around  items-center">
@@ -108,8 +111,6 @@ function Footer() {
             </Link>
           </div>
         </div>
-
-
 
         <div className="flex  items-center  justify-center gap-2       mt-7">
           <Link>

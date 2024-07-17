@@ -14,51 +14,80 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
+
+import {  useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
-
+import { jwtDecode } from "jwt-decode";
+ import { Scrollbars } from "react-custom-scrollbars";
 function ProfileWorker({ image }) {
-  const [datas,setData] = useState([])
+ const baseUrl = "http://127.0.0.1:8000/";
+ const token = localStorage.getItem("authToken");
+ const decodedToken = jwtDecode(token);
+ const user_id = decodedToken.id;
+ console.log(user_id);
+
+//  const [datas,setData]= useState([])
+
   const fetchWorkersNotifications = async () => {
-    const res = await fetch(
-      "https://65fd9c189fc4425c65325ced.mockapi.io/khdemli/workers/ "
-    );
-  //  console.log(data);
+    const res = await fetch(baseUrl +"notifications/"+ user_id);
     return res.json();
   };
 
   const { data, isError, isLoading, isSuccess } = useQuery({
     queryKey: ["notificationw"],
-    //onSuccess: (data) => setData(data),
     queryFn: fetchWorkersNotifications,
+    refetchInterval: 500,
   });
 
-  const [ShowNotification, setShowNotification] = useState(false);
 
 
+    const handelDeleteNotification = async (id) => {
+  // const newData = data.filter((noti) => noti.id !== id);
+  // console.log(newData);
+  // setData(newData);
+      const object = {
+        notification_id: id,
+        action: "delete", 
+      };
+      console.log(object);
+      console.log(JSON.stringify(object));
+    
+      try {
+        const response = await fetch(`${baseUrl}notifications/${user_id}/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(object),
+        });
 
-  const HandeleDeleteRequest =async (id)=>{
-    const newData = data.filter((noti) => noti.id !== id);
-   // console.log(newData)
-  //setData(newData)
-  //  try {
-  //    const res = await fetch(
-  //      `https://65fd9c189fc4425c65325ced.mockapi.io/khdemli/feed_back/${id}`,
-  //      {
-  //        method: "DELETE",
-  //      }
-  //    );
-  //  } catch (error) {
-  //    console.error("Error deleting feedback:", error);
-  //  }
+        if (!response.ok) {
+          console.error("Internal Server Error");
+          Swal.fire({
+            title: "Oops Something Went Wrong",
+            text: "Internal Server Error. Please try again later.",
+            icon: "error",
+            toast: true,
+            timer: 4000,
+            position: "top-right",
+            timerProgressBar: false,
+            showConfirmButton: false,
+            showCancelButton: true,
+          });
+          return;
+        }
+
+        console.log("Notifcation Deleted");
+     
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
 
-
-
-
-  } 
+console.log(data)
   return (
     <div className="w-1/5 border  sticky right-0 top-0 flex flex-col items-center h-screen">
       <div className="flex gap-2 my-5  items-center">
@@ -83,7 +112,7 @@ function ProfileWorker({ image }) {
       </p>
 
       {isSuccess && (
-        <Sheet className="o">
+        <Sheet className="overflow-y-scroll">
           <SheetTrigger>
             <div className="flex justify-between mt-4">
               <IoNotificationsOutline className="text-4xl rounded-full   hover:bg-gray-300 mx-2 border-[2px]   p-1" />
@@ -93,30 +122,29 @@ function ProfileWorker({ image }) {
               </Link>
             </div>
           </SheetTrigger>
-          <SheetContent side="right">
-            <SheetHeader>
-              <SheetTitle> Notifications</SheetTitle>
-              <SheetDescription>
-                {data?.length > 0 &&
-                  data.map((el,index) => {
-                    return (
-                      <WorkerNotification
-                        // onDelete={(id) => {
-                        //   HandeleDeleteRequest(el.id);
-                        // }}
-                        key={el.id}
-                        name={el.Full_Name}    
-                        image={el.image}
-                        price={el.id}
-                        days={el.id}
-                        id={el.id}
-                        // setData={setData}
-                      />
-                    );
-                  })}
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
+            <SheetContent side="right" className="">
+          <Scrollbars style={{ width: "100%", height: "100%" }} className="ml-5 ">
+
+              <SheetHeader>
+                <SheetTitle className="ml-4"> Notifications</SheetTitle>
+                <SheetDescription>
+                  {data?.length > 0 &&
+                    data.map((el, index) => {
+                      return (
+                        <WorkerNotification
+                          handelDeleteNotification={handelDeleteNotification}
+                          key={index}
+                          status={el.status}
+                       time={el.notification.formatted_created_at}
+                          id={el.notification.id} // notification id
+                          content={el.notification.content}
+                        />
+                      );
+                    })}
+                </SheetDescription>
+              </SheetHeader>
+          </Scrollbars>
+            </SheetContent>
         </Sheet>
       )}
       {isLoading && (

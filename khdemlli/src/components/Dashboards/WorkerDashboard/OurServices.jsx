@@ -5,7 +5,7 @@ function OurServices() {
   return (
     <div className='w-3/5'>
         <BannerWoker content={"Services"}/>
-<ServicesWorker/>
+       <ServicesWorker/>
     </div>
   )
 }

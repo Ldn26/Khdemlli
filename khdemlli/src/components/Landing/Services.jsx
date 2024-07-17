@@ -26,45 +26,51 @@ function Services() {
       <div className=" flex flex-wrap justify-center  w-3/4 mx-auto   ">
         <JobCard
           Descrption={
-            " ffffff"
+            "Wall painting involves meticulously applying layers of paint or decorative finishes onto surfaces to enhance aesthetics and protect them from wear."
           }
-          jobName={"PainTing "}
+          jobName={"PainTing"}
           img={paint}
+          link={"/painting"}
         />
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffff fffffbdbf"
+            " entails methodically setting up wiring, outlets, switches, and fixtures to provide safe and functional electricity distribution within a building"
           }
           jobName={"Electrical installlation "}
           img={electric}
+          link={"/electrical"}
         />
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "encompass regular inspections, repairs, to ensure optimal functionality and longevity, addressing issues promptly to prevent potential failures"
           }
           jobName={"Service & maintenance"}
           img={mainte}
+          link={"/ment"}
         />
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "Overseeing construction projects from start to finish, including site prep, structural work, and finishing, ensuring safety and client satisfaction."
           }
           jobName={"General Builder"}
           img={builder}
+          link={"/building"}
         />
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "Extending existing structures with precision, construction, and finishing touches to seamlessly integrate new spaces with the original dwelling."
           }
+          link={"/house"}
           jobName={"House Extentions"}
           img={house}
         />
         <JobCard
           Descrption={
-            "fdfdbdbdfdfffffffffffffff ffffffffffffffffff fffffffffffffffffffff ffffffffffffffffffffffffffbdbf"
+            "Installing and maintaining electronic systems designed to protect properties, utilizing sensors, cameras, and alarms for comprehensive surveillance "
           }
           jobName={"Security System"}
           img={security}
+          link={"/security"}
         />
       </div>
     </div>
