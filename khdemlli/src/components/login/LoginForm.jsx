@@ -19,54 +19,12 @@ function LoginForm() {
     formState: { errors },
   } = useForm();
   const [show, setShow] = useState(false);
-
-  // const onSubmit = async (data) => {
-  // //  console.log(data);
-  //   const obj = {
-  //     email: data.email,
-  //     password: data.password,
-  //   };
-  //   console.log(obj);
-
-  //   try {
-  //     await fetch("http://127.0.0.1:8000/api/login/", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         //  Authorization: `Bearer ${token}`
-  //       },
-  //       body: JSON.stringify(obj),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data?.message) {
-  //           console.log(data.message)
-  //           alert("Opps An Eroor Bro error");
-  //           return;
-  //         }
-  //         if(response.status = ok){
-
-  //           /// the true
-  //           setUser(data);
-  //           console.log(data);
-  //           localStorage.setItem("authTokens", JSON.stringify(data)); //jwt encoded
-  //           navigate("/workerDash");
-  //           console.log("Log in ");
-  //         }
-
-  //       });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const onSubmit = async (data) => {
     const obj = {
       email: data.email,
       password: data.password,
     };
     console.log(obj);
-
     try {
       const response = await fetch("http://127.0.0.1:8000/api/login/", {
         method: "POST",
